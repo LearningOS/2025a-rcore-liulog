@@ -14,6 +14,7 @@ mod switch;
 #[allow(clippy::module_inception)]
 mod task;
 
+use hashbrown::HashMap;
 use crate::config::MAX_APP_NUM;
 use crate::loader::{get_num_app, init_app_cx};
 use crate::sync::UPSafeCell;
@@ -45,6 +46,8 @@ pub struct TaskManagerInner {
     tasks: [TaskControlBlock; MAX_APP_NUM],
     /// id of current `Running` task
     current_task: usize,
+    /// syscall counter
+    syscall_counters: [HashMap<usize, usize>; MAX_APP_NUM],
 }
 
 lazy_static! {
@@ -65,6 +68,7 @@ lazy_static! {
                 UPSafeCell::new(TaskManagerInner {
                     tasks,
                     current_task: 0,
+                    syscall_counters: [(); MAX_APP_NUM].map(|_| HashMap::new()),
                 })
             },
         }
@@ -135,6 +139,27 @@ impl TaskManager {
             panic!("All applications completed!");
         }
     }
+
+    /// Get the syscall count of current task
+    pub fn get_current_syscall_count(&self, syscall_id: usize) -> usize {
+        let inner = self.inner.exclusive_access();
+        let current = inner.current_task;
+        *inner
+            .syscall_counters[current]
+            .get(&syscall_id)
+            .unwrap_or(&0) 
+    }
+
+    /// Increase the syscall count of current task by 1
+    pub fn increase_current_syscall_count(&self, syscall_id: usize) {
+        let mut inner = self.inner.exclusive_access();
+        let current = inner.current_task;
+        let counter = inner
+            .syscall_counters[current]
+            .entry(syscall_id)
+            .or_insert(0);
+        *counter += 1;
+    }
 }
 
 /// Run the first task in task list.
@@ -168,4 +193,14 @@ pub fn suspend_current_and_run_next() {
 pub fn exit_current_and_run_next() {
     mark_current_exited();
     run_next_task();
+}
+
+/// Get the syscall count of current task
+pub fn get_current_syscall_count(syscall_id: usize) -> usize {
+    TASK_MANAGER.get_current_syscall_count(syscall_id)
+}
+
+/// Increase the syscall count of current task by 1
+pub fn increase_current_syscall_count(syscall_id: usize) {
+    TASK_MANAGER.increase_current_syscall_count(syscall_id);
 }
