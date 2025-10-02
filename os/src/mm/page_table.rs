@@ -4,6 +4,7 @@ use super::{frame_alloc, FrameTracker, PhysPageNum, StepByOne, VirtAddr, VirtPag
 use alloc::vec;
 use alloc::vec::Vec;
 use bitflags::*;
+use crate::syscall::TimeVal;
 
 bitflags! {
     /// page table entry flags
@@ -69,6 +70,10 @@ impl PageTableEntry {
     /// The page pointered by page table entry is executable?
     pub fn executable(&self) -> bool {
         (self.flags() & PTEFlags::X) != PTEFlags::empty()
+    }
+    /// The page pointered by page table entry is accessible by user mode?
+    pub fn user(&self) -> bool {
+        (self.flags() & PTEFlags::U) != PTEFlags::empty()
     }
 }
 
@@ -178,4 +183,57 @@ pub fn translated_byte_buffer(token: usize, ptr: *const u8, len: usize) -> Vec<&
         start = end_va.into();
     }
     v
+}
+
+/// Translate TimeVal ptr to a mutable TimeVal reference through page table
+pub fn translated_timeval<'a>(token: usize, ptr: *const TimeVal) -> &'a mut TimeVal {
+    // Get PageTable from token (i.e. satp)
+    let page_table = PageTable::from_token(token);
+    // Convert ptr to VirtAddr and vpn
+    let start_va = VirtAddr::from(ptr as usize);
+    let vpn = start_va.floor();
+    // Translate vpn to ppn
+    let ppn = page_table.translate(vpn).unwrap().ppn();
+    // Get Physical Addr, pa = ppn << 12 + page_offset
+    unsafe{
+        &mut *(ppn.get_bytes_array()[start_va.page_offset()..].as_mut_ptr() as *mut TimeVal)
+    }
+}
+
+/// Translate VirtAddr ptr to a u8 through page table
+pub fn translated_ptr(token: usize, ptr: *const u8) -> Option<u8> {
+    // Get PageTable from token (i.e. satp)
+    let page_table = PageTable::from_token(token);
+    // Convert ptr to VirtAddr and vpn
+    let start_va = VirtAddr::from(ptr as usize);
+    let vpn = start_va.floor();
+    match page_table.translate(vpn) {
+        None => return None,
+        Some(pte) => {
+            if !pte.is_valid() || !pte.readable() || !pte.user() {
+                return None;
+            }
+            let ppn = pte.ppn();
+            return Some(ppn.get_bytes_array()[start_va.page_offset()]);
+        }
+    }
+}
+
+/// Translate VirtAddr ptr to a mutable u8 pointer through page table
+pub fn translated_ptr_mut<'a>(token: usize, ptr: *const u8) -> Option<&'a mut u8>{
+    // Get PageTable from token (i.e. satp)
+    let page_table = PageTable::from_token(token);
+    // Convert ptr to VirtAddr and vpn
+    let start_va = VirtAddr::from(ptr as usize);
+    let vpn = start_va.floor();
+    match page_table.translate(vpn) {
+        None => return None,
+        Some(pte) => {
+            if !pte.is_valid() || !pte.writable() || !pte.user() {
+                return None;
+            }
+            let ppn = pte.ppn();
+            return Some(&mut ppn.get_bytes_array()[start_va.page_offset()]);
+        }
+    }
 }

@@ -15,9 +15,11 @@ mod switch;
 mod task;
 
 use crate::loader::{get_app_data, get_num_app};
+use crate::mm::{MapPermission, VirtAddr};
 use crate::sync::UPSafeCell;
 use crate::trap::TrapContext;
 use alloc::vec::Vec;
+use hashbrown::HashMap;
 use lazy_static::*;
 use switch::__switch;
 pub use task::{TaskControlBlock, TaskStatus};
@@ -46,6 +48,8 @@ struct TaskManagerInner {
     tasks: Vec<TaskControlBlock>,
     /// id of current `Running` task
     current_task: usize,
+    /// syscall counters
+    syscall_counters: Vec<HashMap<usize, usize>>,
 }
 
 lazy_static! {
@@ -55,8 +59,10 @@ lazy_static! {
         let num_app = get_num_app();
         println!("num_app = {}", num_app);
         let mut tasks: Vec<TaskControlBlock> = Vec::new();
+        let mut syscall_counters: Vec<HashMap<usize, usize>> = Vec::new();
         for i in 0..num_app {
             tasks.push(TaskControlBlock::new(get_app_data(i), i));
+            syscall_counters.push(HashMap::new());
         }
         TaskManager {
             num_app,
@@ -64,6 +70,7 @@ lazy_static! {
                 UPSafeCell::new(TaskManagerInner {
                     tasks,
                     current_task: 0,
+                    syscall_counters,
                 })
             },
         }
@@ -153,6 +160,41 @@ impl TaskManager {
             panic!("All applications completed!");
         }
     }
+
+    /// Get the syscall count of current task
+    pub fn get_current_syscall_count(&self, syscall_id: usize) -> usize {
+        let inner = self.inner.exclusive_access();
+        let current = inner.current_task;
+        *inner
+            .syscall_counters[current]
+            .get(&syscall_id)
+            .unwrap_or(&0) 
+    }
+
+    /// Increase the syscall count of current task by 1
+    pub fn increase_current_syscall_count(&self, syscall_id: usize) {
+        let mut inner = self.inner.exclusive_access();
+        let current = inner.current_task;
+        let counter = inner
+            .syscall_counters[current]
+            .entry(syscall_id)
+            .or_insert(0);
+        *counter += 1;
+    }
+
+    /// Map one page for current task at virtual address `va` with permission `prot`
+    pub fn current_user_mmap_one_page(&self, va: VirtAddr, prot: MapPermission) -> Result<(), ()> {
+        let mut inner = self.inner.exclusive_access();
+        let current = inner.current_task;
+        inner.tasks[current].map_one_page(va, prot)
+    }
+
+    /// Unmap one page for current task at virtual address `va`
+    pub fn current_user_unmap_one_page(&self, va: VirtAddr) -> Result<(), ()> {
+        let mut inner = self.inner.exclusive_access();
+        let current = inner.current_task;
+        inner.tasks[current].unmap_one_page(va)
+    }
 }
 
 /// Run the first task in task list.
@@ -201,4 +243,24 @@ pub fn current_trap_cx() -> &'static mut TrapContext {
 /// Change the current 'Running' task's program break
 pub fn change_program_brk(size: i32) -> Option<usize> {
     TASK_MANAGER.change_current_program_brk(size)
+}
+
+/// Get the syscall count of current task
+pub fn get_current_syscall_count(syscall_id: usize) -> usize {
+    TASK_MANAGER.get_current_syscall_count(syscall_id)
+}
+
+/// Increase the syscall count of current task by 1
+pub fn increase_current_syscall_count(syscall_id: usize) {
+    TASK_MANAGER.increase_current_syscall_count(syscall_id);
+}
+
+/// Map one page for current task at virtual address `va` with permission `prot`
+pub fn current_user_mmap_one_page(va: VirtAddr, prot: MapPermission) -> Result<(), ()> {
+    TASK_MANAGER.current_user_mmap_one_page(va, prot)
+}
+
+/// Get the current 'Running' task's MemorySet
+pub fn current_user_unmap_one_page(va: VirtAddr) -> Result<(), ()> {
+    TASK_MANAGER.current_user_unmap_one_page(va)
 }
