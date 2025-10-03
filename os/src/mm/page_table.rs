@@ -4,17 +4,26 @@ use alloc::string::String;
 use alloc::vec;
 use alloc::vec::Vec;
 use bitflags::*;
+use crate::syscall::TimeVal;
 
 bitflags! {
     /// page table entry flags
     pub struct PTEFlags: u8 {
+        /// valid
         const V = 1 << 0;
+        /// readable
         const R = 1 << 1;
+        /// writable
         const W = 1 << 2;
+        /// executable
         const X = 1 << 3;
+        /// user
         const U = 1 << 4;
+        /// global
         const G = 1 << 5;
+        /// accessed
         const A = 1 << 6;
+        /// dirty
         const D = 1 << 7;
     }
 }
@@ -217,6 +226,21 @@ pub fn translated_refmut<T>(token: usize, ptr: *mut T) -> &'static mut T {
         .translate_va(VirtAddr::from(va))
         .unwrap()
         .get_mut()
+}
+
+/// Translate TimeVal ptr to a mutable TimeVal reference through page table
+pub fn translated_timeval<'a>(token: usize, ptr: *const TimeVal) -> &'a mut TimeVal {
+    // Get PageTable from token (i.e. satp)
+    let page_table = PageTable::from_token(token);
+    // Convert ptr to VirtAddr and vpn
+    let start_va = VirtAddr::from(ptr as usize);
+    let vpn = start_va.floor();
+    // Translate vpn to ppn
+    let ppn = page_table.translate(vpn).unwrap().ppn();
+    // Get Physical Addr, pa = ppn << 12 + page_offset
+    unsafe{
+        &mut *(ppn.get_bytes_array()[start_va.page_offset()..].as_mut_ptr() as *mut TimeVal)
+    }
 }
 
 /// An abstraction over a buffer passed from user space to kernel space

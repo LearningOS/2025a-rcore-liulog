@@ -1,20 +1,28 @@
 //! Process management syscalls
 //!
+use crate::mm::MapPermission;
+use crate::mm::PageTable;
+use crate::mm::VirtAddr;
+use crate::timer::get_time_us;
 use alloc::sync::Arc;
+use crate::config::BIG_STRIDE;
 
 use crate::{
     fs::{open_file, OpenFlags},
-    mm::{translated_refmut, translated_str},
+    mm::{translated_refmut, translated_str, translated_timeval},
     task::{
-        add_task, current_task, current_user_token, exit_current_and_run_next,
-        suspend_current_and_run_next,
+        add_task, current_task, current_user_mmap_one_page, current_user_token,
+        current_user_unmap_one_page, exit_current_and_run_next, suspend_current_and_run_next,
     },
 };
 
+/// TimeVal struct for sys_get_time
 #[repr(C)]
 #[derive(Debug)]
 pub struct TimeVal {
+    /// seconds
     pub sec: usize,
+    /// microseconds
     pub usec: usize,
 }
 
@@ -105,30 +113,88 @@ pub fn sys_waitpid(pid: isize, exit_code_ptr: *mut i32) -> isize {
 /// YOUR JOB: get time with second and microsecond
 /// HINT: You might reimplement it with virtual memory management.
 /// HINT: What if [`TimeVal`] is splitted by two pages ?
-pub fn sys_get_time(_ts: *mut TimeVal, _tz: usize) -> isize {
-    trace!(
-        "kernel:pid[{}] sys_get_time NOT IMPLEMENTED",
-        current_task().unwrap().pid.0
-    );
-    -1
+pub fn sys_get_time(ts: *mut TimeVal, _tz: usize) -> isize {
+    trace!("kernel:pid[{}] sys_get_time", current_task().unwrap().pid.0);
+    let timeval = translated_timeval(current_user_token(), ts);
+    let us = get_time_us();
+    timeval.sec = us / 1_000_000;
+    timeval.usec = us % 1_000_000;
+    0
 }
 
 /// YOUR JOB: Implement mmap.
-pub fn sys_mmap(_start: usize, _len: usize, _port: usize) -> isize {
-    trace!(
-        "kernel:pid[{}] sys_mmap NOT IMPLEMENTED",
-        current_task().unwrap().pid.0
-    );
-    -1
+pub fn sys_mmap(start: usize, len: usize, port: usize) -> isize {
+    trace!("kernel:pid[{}] sys_mmap", current_task().unwrap().pid.0);
+    if start & 0xFFF != 0 || port & !0x7 != 0 || port & 0x7 == 0 {
+        return -1;
+    }
+    if len == 0 {
+        return 0;
+    }
+    let mut remaining_len = len as isize;
+    let mut va = start;
+    // Check if the page is already mapped
+    while remaining_len > 0 {
+        if let Some(pte) =
+            PageTable::from_token(current_user_token()).translate(VirtAddr::from(va).floor())
+        {
+            if pte.is_valid() {
+                return -1;
+            }
+        }
+        remaining_len -= 4096;
+        va += 4096;
+    }
+    // Map the pages
+    remaining_len = len as isize;
+    va = start;
+    while remaining_len > 0 {
+        // Map the page, if failed, return -1
+        if current_user_mmap_one_page(
+            VirtAddr::from(va),
+            MapPermission::U | MapPermission::from_bits_truncate((port << 1) as u8), // this port is syscall used, it needs to shift left 1 to convert to MapPermission
+        )
+        .is_err()
+        {
+            return -1;
+        }
+        remaining_len -= 4096;
+        va += 4096;
+    }
+    0
 }
 
 /// YOUR JOB: Implement munmap.
-pub fn sys_munmap(_start: usize, _len: usize) -> isize {
-    trace!(
-        "kernel:pid[{}] sys_munmap NOT IMPLEMENTED",
-        current_task().unwrap().pid.0
-    );
-    -1
+pub fn sys_munmap(start: usize, len: usize) -> isize {
+    trace!("kernel:pid[{}] sys_munmap", current_task().unwrap().pid.0);
+    if start & 0xFFF != 0 || len == 0 {
+        return -1;
+    }
+    let mut remaining_len = len as isize;
+    let mut va = start;
+    // Check if the page is already mapped
+    while remaining_len > 0 {
+        if PageTable::from_token(current_user_token())
+            .translate(VirtAddr::from(va).into())
+            .is_none()
+        {
+            return -1;
+        }
+        remaining_len -= 4096;
+        va += 4096;
+    }
+    // Unmap the pages
+    remaining_len = len as isize;
+    va = start;
+    while remaining_len > 0 {
+        // Map the page, if failed, return -1
+        if current_user_unmap_one_page(VirtAddr::from(va)).is_err() {
+            return -1;
+        }
+        remaining_len -= 4096;
+        va += 4096;
+    }
+    0
 }
 
 /// change data segment size
@@ -143,19 +209,35 @@ pub fn sys_sbrk(size: i32) -> isize {
 
 /// YOUR JOB: Implement spawn.
 /// HINT: fork + exec =/= spawn
-pub fn sys_spawn(_path: *const u8) -> isize {
-    trace!(
-        "kernel:pid[{}] sys_spawn NOT IMPLEMENTED",
-        current_task().unwrap().pid.0
-    );
-    -1
+pub fn sys_spawn(path: *const u8) -> isize {
+    trace!("kernel:pid[{}] sys_spawn", current_task().unwrap().pid.0);
+    let token = current_user_token();
+    let path = translated_str(token, path);
+    // Check if the app exists
+    if let Some(app_inode) = open_file(path.as_str(), OpenFlags::RDONLY) {
+        let all_data = app_inode.read_all();
+        let current_task = current_task().unwrap();
+        let new_task = current_task.spawn(all_data.as_slice());
+        let new_pid = new_task.pid.0;
+        let trap_cx = new_task.inner_exclusive_access().get_trap_cx();
+        trap_cx.x[10] = 0;
+        add_task(new_task);
+        new_pid as isize
+    } else {
+        -1
+    }
 }
 
 // YOUR JOB: Set task priority.
-pub fn sys_set_priority(_prio: isize) -> isize {
-    trace!(
-        "kernel:pid[{}] sys_set_priority NOT IMPLEMENTED",
-        current_task().unwrap().pid.0
-    );
-    -1
+pub fn sys_set_priority(prio: isize) -> isize {
+    trace!("kernel:pid[{}] sys_set_priority", current_task().unwrap().pid.0);
+    // We need prio >= 2
+    if prio <= 1{
+        return -1;
+    }
+    let task = current_task().unwrap();
+    let mut inner = task.inner_exclusive_access();
+    inner.priority = prio as usize;
+    inner.pass = BIG_STRIDE / prio as usize;
+    prio
 }
