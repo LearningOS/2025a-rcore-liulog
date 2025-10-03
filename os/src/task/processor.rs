@@ -11,6 +11,7 @@ use crate::sync::UPSafeCell;
 use crate::trap::TrapContext;
 use alloc::sync::Arc;
 use lazy_static::*;
+use crate::mm::{MapPermission, VirtAddr};
 
 /// Processor management structure
 pub struct Processor {
@@ -61,6 +62,7 @@ pub fn run_tasks() {
             let mut task_inner = task.inner_exclusive_access();
             let next_task_cx_ptr = &task_inner.task_cx as *const TaskContext;
             task_inner.task_status = TaskStatus::Running;
+            task_inner.stride += task_inner.pass;
             // release coming task_inner manually
             drop(task_inner);
             // release coming task TCB manually
@@ -90,6 +92,18 @@ pub fn current_task() -> Option<Arc<TaskControlBlock>> {
 pub fn current_user_token() -> usize {
     let task = current_task().unwrap();
     task.get_user_token()
+}
+
+/// Map one page for current task at virtual address `va` with permission `prot`
+pub fn current_user_mmap_one_page(va: VirtAddr, prot: MapPermission) -> Result<(), ()> {
+    let task = current_task().unwrap();
+    task.map_one_page(va, prot)
+}
+
+/// Get the current 'Running' task's MemorySet
+pub fn current_user_unmap_one_page(va: VirtAddr) -> Result<(), ()> {
+    let task = current_task().unwrap();
+    task.unmap_one_page(va)
 }
 
 ///Get the mutable reference to trap context of current task
