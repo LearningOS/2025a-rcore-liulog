@@ -5,7 +5,7 @@
 //! `UPSafeCell<OSInodeInner>` -> `OSInode`: for static `ROOT_INODE`,we
 //! need to wrap `OSInodeInner` into `UPSafeCell`
 use super::File;
-use crate::drivers::BLOCK_DEVICE;
+use crate::{drivers::BLOCK_DEVICE, fs::StatMode};
 use crate::mm::UserBuffer;
 use crate::sync::UPSafeCell;
 use alloc::sync::Arc;
@@ -13,6 +13,7 @@ use alloc::vec::Vec;
 use bitflags::*;
 use easy_fs::{EasyFileSystem, Inode};
 use lazy_static::*;
+use easy_fs::DiskInodeType;
 
 /// inode in memory
 /// A wrapper around a filesystem inode
@@ -52,6 +53,21 @@ impl OSInode {
             v.extend_from_slice(&buffer[..len]);
         }
         v
+    }
+    /// Return the number of links to the inode
+    pub fn nlink(&self) -> u32{
+        self.inner.exclusive_access().inode.get_nlink()
+    }
+    /// Return the inode number
+    pub fn inode_id(&self) -> u32{
+        self.inner.exclusive_access().inode.get_inode_id()
+    }
+    /// Return the file mode
+    pub fn mode(&self) -> StatMode {
+        match self.inner.exclusive_access().inode.get_mode() {
+            DiskInodeType::Directory=> StatMode::DIR,
+            DiskInodeType::File => StatMode::FILE,
+        }
     }
 }
 
@@ -125,7 +141,22 @@ pub fn open_file(name: &str, flags: OpenFlags) -> Option<Arc<OSInode>> {
     }
 }
 
+/// Create a hard link to the file `old_name`
+pub fn linkat_file(old_name: &str, new_name: &str) -> isize {
+    // Note: here only support linking files under root directory
+    ROOT_INODE.link(old_name, new_name)
+}
+
+/// Unlink the file `file_name`
+pub fn unlinkat_file(file_name: &str) -> isize {
+    // Note: here only support unlinking files under root directory
+    ROOT_INODE.unlink(file_name)
+}
+
 impl File for OSInode {
+    fn as_any(&self) -> &dyn _core::any::Any {
+        self
+    }
     fn readable(&self) -> bool {
         self.readable
     }
