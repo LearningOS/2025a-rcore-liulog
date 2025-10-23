@@ -1,0 +1,40 @@
+warning: `/home/jingyu/.cargo/config` is deprecated in favor of `config.toml`
+note: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+warning: `/home/jingyu/.cargo/config` is deprecated in favor of `config.toml`
+note: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
+    Blocking waiting for file lock on package cache
+   0.132611350s  INFO prepare_target{force=false package_id=easy-fs-fuse v0.1.0 (/home/jingyu/workspace/2025a-rcore-liulog/easy-fs-fuse) target="easy-fs-fuse"}: cargo::core::compiler::fingerprint: fingerprint dirty for easy-fs-fuse v0.1.0 (/home/jingyu/workspace/2025a-rcore-liulog/easy-fs-fuse)/Check { test: false }/TargetInner { name: "easy-fs-fuse", doc: true, ..: with_path("/home/jingyu/workspace/2025a-rcore-liulog/easy-fs-fuse/src/main.rs", Edition2018) }
+   0.132671635s  INFO prepare_target{force=false package_id=easy-fs-fuse v0.1.0 (/home/jingyu/workspace/2025a-rcore-liulog/easy-fs-fuse) target="easy-fs-fuse"}: cargo::core::compiler::fingerprint:     dirty: FsStatusOutdated(Stale)
+   0.133555516s  INFO prepare_target{force=false package_id=clap v2.34.0 target="clap"}: cargo::core::compiler::fingerprint: fingerprint dirty for clap v2.34.0/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("clap", ["lib"], "/home/jingyu/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/clap-2.34.0/src/lib.rs", Edition2018) }
+   0.133594702s  INFO prepare_target{force=false package_id=clap v2.34.0 target="clap"}: cargo::core::compiler::fingerprint:     dirty: FsStatusOutdated(Stale)
+   0.134429835s  INFO prepare_target{force=false package_id=ansi_term v0.12.1 target="ansi_term"}: cargo::core::compiler::fingerprint: fingerprint dirty for ansi_term v0.12.1/Check { test: false }/TargetInner { ..: lib_target("ansi_term", ["lib"], "/home/jingyu/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/ansi_term-0.12.1/src/lib.rs", Edition2015) }
+   0.134486543s  INFO prepare_target{force=false package_id=ansi_term v0.12.1 target="ansi_term"}: cargo::core::compiler::fingerprint:     dirty: FsStatusOutdated(Stale)
+   0.139566590s  INFO prepare_target{force=false package_id=atty v0.2.14 target="atty"}: cargo::core::compiler::fingerprint: fingerprint dirty for atty v0.2.14/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("atty", ["lib"], "/home/jingyu/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/atty-0.2.14/src/lib.rs", Edition2015) }
+   0.139606740s  INFO prepare_target{force=false package_id=atty v0.2.14 target="atty"}: cargo::core::compiler::fingerprint:     dirty: FsStatusOutdated(Stale)
+   0.141617671s  INFO prepare_target{force=false package_id=strsim v0.8.0 target="strsim"}: cargo::core::compiler::fingerprint: fingerprint dirty for strsim v0.8.0/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("strsim", ["lib"], "/home/jingyu/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/strsim-0.8.0/src/lib.rs", Edition2015) }
+   0.141663467s  INFO prepare_target{force=false package_id=strsim v0.8.0 target="strsim"}: cargo::core::compiler::fingerprint:     dirty: FsStatusOutdated(Stale)
+   0.142971074s  INFO prepare_target{force=false package_id=textwrap v0.11.0 target="textwrap"}: cargo::core::compiler::fingerprint: fingerprint dirty for textwrap v0.11.0/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("textwrap", ["lib"], "/home/jingyu/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/textwrap-0.11.0/src/lib.rs", Edition2015) }
+   0.143003811s  INFO prepare_target{force=false package_id=textwrap v0.11.0 target="textwrap"}: cargo::core::compiler::fingerprint:     dirty: FsStatusOutdated(Stale)
+   0.144909036s  INFO prepare_target{force=false package_id=vec_map v0.8.2 target="vec_map"}: cargo::core::compiler::fingerprint: fingerprint dirty for vec_map v0.8.2/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("vec_map", ["lib"], "/home/jingyu/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/vec_map-0.8.2/src/lib.rs", Edition2015) }
+   0.144945453s  INFO prepare_target{force=false package_id=vec_map v0.8.2 target="vec_map"}: cargo::core::compiler::fingerprint:     dirty: FsStatusOutdated(Stale)
+   0.157220791s  INFO prepare_target{force=false package_id=rand v0.8.5 target="rand"}: cargo::core::compiler::fingerprint: fingerprint dirty for rand v0.8.5/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("rand", ["lib"], "/home/jingyu/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/rand-0.8.5/src/lib.rs", Edition2018) }
+   0.157277300s  INFO prepare_target{force=false package_id=rand v0.8.5 target="rand"}: cargo::core::compiler::fingerprint:     dirty: FsStatusOutdated(Stale)
+   0.158123962s  INFO prepare_target{force=false package_id=rand_chacha v0.3.1 target="rand_chacha"}: cargo::core::compiler::fingerprint: fingerprint dirty for rand_chacha v0.3.1/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("rand_chacha", ["lib"], "/home/jingyu/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/rand_chacha-0.3.1/src/lib.rs", Edition2018) }
+   0.158160542s  INFO prepare_target{force=false package_id=rand_chacha v0.3.1 target="rand_chacha"}: cargo::core::compiler::fingerprint:     dirty: FsStatusOutdated(Stale)
+   0.161255085s  INFO prepare_target{force=false package_id=rand_core v0.6.4 target="rand_core"}: cargo::core::compiler::fingerprint: fingerprint dirty for rand_core v0.6.4/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("rand_core", ["lib"], "/home/jingyu/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/rand_core-0.6.4/src/lib.rs", Edition2018) }
+   0.161293534s  INFO prepare_target{force=false package_id=rand_core v0.6.4 target="rand_core"}: cargo::core::compiler::fingerprint:     dirty: FsStatusOutdated(Stale)
+   0.162303977s  INFO prepare_target{force=false package_id=getrandom v0.2.16 target="getrandom"}: cargo::core::compiler::fingerprint: fingerprint dirty for getrandom v0.2.16/Check { test: false }/TargetInner { ..: lib_target("getrandom", ["lib"], "/home/jingyu/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/getrandom-0.2.16/src/lib.rs", Edition2018) }
+   0.162339525s  INFO prepare_target{force=false package_id=getrandom v0.2.16 target="getrandom"}: cargo::core::compiler::fingerprint:     dirty: FsStatusOutdated(Stale)
+    Checking getrandom v0.2.16
+    Checking strsim v0.8.0
+    Checking atty v0.2.14
+    Checking ansi_term v0.12.1
+    Checking vec_map v0.8.2
+    Checking textwrap v0.11.0
+error: could not compile `atty` (lib) due to 5 previous errors
+warning: build failed, waiting for other jobs to finish...
+error: could not compile `getrandom` (lib) due to 4 previous errors
+error: could not compile `strsim` (lib) due to 22 previous errors
+error: could not compile `textwrap` (lib) due to 39 previous errors
+error: could not compile `ansi_term` (lib) due to 145 previous errors
+error: could not compile `vec_map` (lib) due to 131 previous errors

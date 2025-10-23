@@ -52,6 +52,7 @@ pub fn sys_mutex_create(blocking: bool) -> isize {
         id as isize
     } else {
         process_inner.mutex_list.push(mutex);
+        process_inner.mutex_resource_list.push(false);
         process_inner.mutex_list.len() as isize - 1
     }
 }
@@ -69,7 +70,13 @@ pub fn sys_mutex_lock(mutex_id: usize) -> isize {
             .tid
     );
     let process = current_process();
-    let process_inner = process.inner_exclusive_access();
+    let mut process_inner = process.inner_exclusive_access();
+    if process_inner.deadlock_detect {
+        if process_inner.mutex_resource_list[mutex_id] {
+            return -0xDEAD; // deadlock detected
+        }
+        process_inner.mutex_resource_list[mutex_id] = true;
+    }
     let mutex = Arc::clone(process_inner.mutex_list[mutex_id].as_ref().unwrap());
     drop(process_inner);
     drop(process);
@@ -90,7 +97,10 @@ pub fn sys_mutex_unlock(mutex_id: usize) -> isize {
             .tid
     );
     let process = current_process();
-    let process_inner = process.inner_exclusive_access();
+    let mut process_inner = process.inner_exclusive_access();
+    if process_inner.deadlock_detect {
+        process_inner.mutex_resource_list[mutex_id] = false;
+    }
     let mutex = Arc::clone(process_inner.mutex_list[mutex_id].as_ref().unwrap());
     drop(process_inner);
     drop(process);
@@ -245,7 +255,14 @@ pub fn sys_condvar_wait(condvar_id: usize, mutex_id: usize) -> isize {
 /// enable deadlock detection syscall
 ///
 /// YOUR JOB: Implement deadlock detection, but might not all in this syscall
-pub fn sys_enable_deadlock_detect(_enabled: usize) -> isize {
-    trace!("kernel: sys_enable_deadlock_detect NOT IMPLEMENTED");
-    -1
+pub fn sys_enable_deadlock_detect(enabled: usize) -> isize {
+    trace!("kernel: sys_enable_deadlock_detect");
+    match enabled {
+        0 => current_process().inner_exclusive_access().deadlock_detect = false,
+        1 => current_process().inner_exclusive_access().deadlock_detect = true,
+        _ => {
+            return -1;
+        }
+    }
+    0
 }
