@@ -3,38 +3,1053 @@ note: if you need to support cargo 1.38 or earlier, you can symlink `config` to 
 warning: `/home/jingyu/.cargo/config` is deprecated in favor of `config.toml`
 note: if you need to support cargo 1.38 or earlier, you can symlink `config` to `config.toml`
     Blocking waiting for file lock on package cache
-   0.132611350s  INFO prepare_target{force=false package_id=easy-fs-fuse v0.1.0 (/home/jingyu/workspace/2025a-rcore-liulog/easy-fs-fuse) target="easy-fs-fuse"}: cargo::core::compiler::fingerprint: fingerprint dirty for easy-fs-fuse v0.1.0 (/home/jingyu/workspace/2025a-rcore-liulog/easy-fs-fuse)/Check { test: false }/TargetInner { name: "easy-fs-fuse", doc: true, ..: with_path("/home/jingyu/workspace/2025a-rcore-liulog/easy-fs-fuse/src/main.rs", Edition2018) }
-   0.132671635s  INFO prepare_target{force=false package_id=easy-fs-fuse v0.1.0 (/home/jingyu/workspace/2025a-rcore-liulog/easy-fs-fuse) target="easy-fs-fuse"}: cargo::core::compiler::fingerprint:     dirty: FsStatusOutdated(Stale)
-   0.133555516s  INFO prepare_target{force=false package_id=clap v2.34.0 target="clap"}: cargo::core::compiler::fingerprint: fingerprint dirty for clap v2.34.0/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("clap", ["lib"], "/home/jingyu/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/clap-2.34.0/src/lib.rs", Edition2018) }
-   0.133594702s  INFO prepare_target{force=false package_id=clap v2.34.0 target="clap"}: cargo::core::compiler::fingerprint:     dirty: FsStatusOutdated(Stale)
-   0.134429835s  INFO prepare_target{force=false package_id=ansi_term v0.12.1 target="ansi_term"}: cargo::core::compiler::fingerprint: fingerprint dirty for ansi_term v0.12.1/Check { test: false }/TargetInner { ..: lib_target("ansi_term", ["lib"], "/home/jingyu/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/ansi_term-0.12.1/src/lib.rs", Edition2015) }
-   0.134486543s  INFO prepare_target{force=false package_id=ansi_term v0.12.1 target="ansi_term"}: cargo::core::compiler::fingerprint:     dirty: FsStatusOutdated(Stale)
-   0.139566590s  INFO prepare_target{force=false package_id=atty v0.2.14 target="atty"}: cargo::core::compiler::fingerprint: fingerprint dirty for atty v0.2.14/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("atty", ["lib"], "/home/jingyu/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/atty-0.2.14/src/lib.rs", Edition2015) }
-   0.139606740s  INFO prepare_target{force=false package_id=atty v0.2.14 target="atty"}: cargo::core::compiler::fingerprint:     dirty: FsStatusOutdated(Stale)
-   0.141617671s  INFO prepare_target{force=false package_id=strsim v0.8.0 target="strsim"}: cargo::core::compiler::fingerprint: fingerprint dirty for strsim v0.8.0/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("strsim", ["lib"], "/home/jingyu/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/strsim-0.8.0/src/lib.rs", Edition2015) }
-   0.141663467s  INFO prepare_target{force=false package_id=strsim v0.8.0 target="strsim"}: cargo::core::compiler::fingerprint:     dirty: FsStatusOutdated(Stale)
-   0.142971074s  INFO prepare_target{force=false package_id=textwrap v0.11.0 target="textwrap"}: cargo::core::compiler::fingerprint: fingerprint dirty for textwrap v0.11.0/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("textwrap", ["lib"], "/home/jingyu/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/textwrap-0.11.0/src/lib.rs", Edition2015) }
-   0.143003811s  INFO prepare_target{force=false package_id=textwrap v0.11.0 target="textwrap"}: cargo::core::compiler::fingerprint:     dirty: FsStatusOutdated(Stale)
-   0.144909036s  INFO prepare_target{force=false package_id=vec_map v0.8.2 target="vec_map"}: cargo::core::compiler::fingerprint: fingerprint dirty for vec_map v0.8.2/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("vec_map", ["lib"], "/home/jingyu/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/vec_map-0.8.2/src/lib.rs", Edition2015) }
-   0.144945453s  INFO prepare_target{force=false package_id=vec_map v0.8.2 target="vec_map"}: cargo::core::compiler::fingerprint:     dirty: FsStatusOutdated(Stale)
-   0.157220791s  INFO prepare_target{force=false package_id=rand v0.8.5 target="rand"}: cargo::core::compiler::fingerprint: fingerprint dirty for rand v0.8.5/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("rand", ["lib"], "/home/jingyu/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/rand-0.8.5/src/lib.rs", Edition2018) }
-   0.157277300s  INFO prepare_target{force=false package_id=rand v0.8.5 target="rand"}: cargo::core::compiler::fingerprint:     dirty: FsStatusOutdated(Stale)
-   0.158123962s  INFO prepare_target{force=false package_id=rand_chacha v0.3.1 target="rand_chacha"}: cargo::core::compiler::fingerprint: fingerprint dirty for rand_chacha v0.3.1/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("rand_chacha", ["lib"], "/home/jingyu/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/rand_chacha-0.3.1/src/lib.rs", Edition2018) }
-   0.158160542s  INFO prepare_target{force=false package_id=rand_chacha v0.3.1 target="rand_chacha"}: cargo::core::compiler::fingerprint:     dirty: FsStatusOutdated(Stale)
-   0.161255085s  INFO prepare_target{force=false package_id=rand_core v0.6.4 target="rand_core"}: cargo::core::compiler::fingerprint: fingerprint dirty for rand_core v0.6.4/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("rand_core", ["lib"], "/home/jingyu/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/rand_core-0.6.4/src/lib.rs", Edition2018) }
-   0.161293534s  INFO prepare_target{force=false package_id=rand_core v0.6.4 target="rand_core"}: cargo::core::compiler::fingerprint:     dirty: FsStatusOutdated(Stale)
-   0.162303977s  INFO prepare_target{force=false package_id=getrandom v0.2.16 target="getrandom"}: cargo::core::compiler::fingerprint: fingerprint dirty for getrandom v0.2.16/Check { test: false }/TargetInner { ..: lib_target("getrandom", ["lib"], "/home/jingyu/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/getrandom-0.2.16/src/lib.rs", Edition2018) }
-   0.162339525s  INFO prepare_target{force=false package_id=getrandom v0.2.16 target="getrandom"}: cargo::core::compiler::fingerprint:     dirty: FsStatusOutdated(Stale)
-    Checking getrandom v0.2.16
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+   0.124934072s  INFO prepare_target{force=false package_id=easy-fs-fuse v0.1.0 (/home/jingyu/workspace/2025a-rcore-liulog/easy-fs-fuse) target="easy-fs-fuse"}: cargo::core::compiler::fingerprint: fingerprint error for easy-fs-fuse v0.1.0 (/home/jingyu/workspace/2025a-rcore-liulog/easy-fs-fuse)/Check { test: false }/TargetInner { name: "easy-fs-fuse", doc: true, ..: with_path("/home/jingyu/workspace/2025a-rcore-liulog/easy-fs-fuse/src/main.rs", Edition2018) }
+   0.124990678s  INFO prepare_target{force=false package_id=easy-fs-fuse v0.1.0 (/home/jingyu/workspace/2025a-rcore-liulog/easy-fs-fuse) target="easy-fs-fuse"}: cargo::core::compiler::fingerprint:     err: failed to read `/home/jingyu/workspace/2025a-rcore-liulog/easy-fs-fuse/target/riscv64gc-unknown-none-elf/debug/.fingerprint/easy-fs-fuse-bd89f3ff2595321c/bin-easy-fs-fuse`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: cargo_util::paths::read_bytes
+   1: cargo_util::paths::read
+   2: cargo::core::compiler::fingerprint::_compare_old_fingerprint
+   3: cargo::core::compiler::fingerprint::prepare_target
+   4: cargo::core::compiler::compile
+   5: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   6: cargo::ops::cargo_compile::compile_ws
+   7: cargo::ops::cargo_compile::compile
+   8: cargo::commands::check::exec
+   9: <cargo::cli::Exec>::exec
+  10: cargo::main
+  11: std::sys_common::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  12: std::rt::lang_start::<()>::{closure#0}
+  13: core::ops::function::impls::<impl core::ops::function::FnOnce<A> for &F>::call_once
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/core/src/ops/function.rs:284:13
+  14: std::panicking::try::do_call
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:559:40
+  15: std::panicking::try
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:523:19
+  16: std::panic::catch_unwind
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panic.rs:149:14
+  17: std::rt::lang_start_internal::{{closure}}
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/rt.rs:141:48
+  18: std::panicking::try::do_call
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:559:40
+  19: std::panicking::try
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:523:19
+  20: std::panic::catch_unwind
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panic.rs:149:14
+  21: std::rt::lang_start_internal
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/rt.rs:141:20
+  22: main
+  23: __libc_start_call_main
+             at ./csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+  24: __libc_start_main_impl
+             at ./csu/../csu/libc-start.c:392:3
+  25: <unknown>
+   0.212836798s  INFO prepare_target{force=false package_id=clap v2.34.0 target="clap"}: cargo::core::compiler::fingerprint: fingerprint error for clap v2.34.0/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("clap", ["lib"], "/home/jingyu/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/clap-2.34.0/src/lib.rs", Edition2018) }
+   0.212889132s  INFO prepare_target{force=false package_id=clap v2.34.0 target="clap"}: cargo::core::compiler::fingerprint:     err: failed to read `/home/jingyu/workspace/2025a-rcore-liulog/easy-fs-fuse/target/riscv64gc-unknown-none-elf/debug/.fingerprint/clap-194b16cba58cb0b8/lib-clap`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: cargo_util::paths::read_bytes
+   1: cargo_util::paths::read
+   2: cargo::core::compiler::fingerprint::_compare_old_fingerprint
+   3: cargo::core::compiler::fingerprint::prepare_target
+   4: cargo::core::compiler::compile
+   5: cargo::core::compiler::compile
+   6: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   7: cargo::ops::cargo_compile::compile_ws
+   8: cargo::ops::cargo_compile::compile
+   9: cargo::commands::check::exec
+  10: <cargo::cli::Exec>::exec
+  11: cargo::main
+  12: std::sys_common::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  13: std::rt::lang_start::<()>::{closure#0}
+  14: core::ops::function::impls::<impl core::ops::function::FnOnce<A> for &F>::call_once
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/core/src/ops/function.rs:284:13
+  15: std::panicking::try::do_call
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:559:40
+  16: std::panicking::try
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:523:19
+  17: std::panic::catch_unwind
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panic.rs:149:14
+  18: std::rt::lang_start_internal::{{closure}}
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/rt.rs:141:48
+  19: std::panicking::try::do_call
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:559:40
+  20: std::panicking::try
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:523:19
+  21: std::panic::catch_unwind
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panic.rs:149:14
+  22: std::rt::lang_start_internal
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/rt.rs:141:20
+  23: main
+  24: __libc_start_call_main
+             at ./csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+  25: __libc_start_main_impl
+             at ./csu/../csu/libc-start.c:392:3
+  26: <unknown>
+   0.213731085s  INFO prepare_target{force=false package_id=ansi_term v0.12.1 target="ansi_term"}: cargo::core::compiler::fingerprint: fingerprint error for ansi_term v0.12.1/Check { test: false }/TargetInner { ..: lib_target("ansi_term", ["lib"], "/home/jingyu/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/ansi_term-0.12.1/src/lib.rs", Edition2015) }
+   0.213814702s  INFO prepare_target{force=false package_id=ansi_term v0.12.1 target="ansi_term"}: cargo::core::compiler::fingerprint:     err: failed to read `/home/jingyu/workspace/2025a-rcore-liulog/easy-fs-fuse/target/riscv64gc-unknown-none-elf/debug/.fingerprint/ansi_term-93d1a95c37ba7a23/lib-ansi_term`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: cargo_util::paths::read_bytes
+   1: cargo_util::paths::read
+   2: cargo::core::compiler::fingerprint::_compare_old_fingerprint
+   3: cargo::core::compiler::fingerprint::prepare_target
+   4: cargo::core::compiler::compile
+   5: cargo::core::compiler::compile
+   6: cargo::core::compiler::compile
+   7: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   8: cargo::ops::cargo_compile::compile_ws
+   9: cargo::ops::cargo_compile::compile
+  10: cargo::commands::check::exec
+  11: <cargo::cli::Exec>::exec
+  12: cargo::main
+  13: std::sys_common::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  14: std::rt::lang_start::<()>::{closure#0}
+  15: core::ops::function::impls::<impl core::ops::function::FnOnce<A> for &F>::call_once
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/core/src/ops/function.rs:284:13
+  16: std::panicking::try::do_call
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:559:40
+  17: std::panicking::try
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:523:19
+  18: std::panic::catch_unwind
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panic.rs:149:14
+  19: std::rt::lang_start_internal::{{closure}}
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/rt.rs:141:48
+  20: std::panicking::try::do_call
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:559:40
+  21: std::panicking::try
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:523:19
+  22: std::panic::catch_unwind
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panic.rs:149:14
+  23: std::rt::lang_start_internal
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/rt.rs:141:20
+  24: main
+  25: __libc_start_call_main
+             at ./csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+  26: __libc_start_main_impl
+             at ./csu/../csu/libc-start.c:392:3
+  27: <unknown>
+   0.214303159s  INFO prepare_target{force=false package_id=atty v0.2.14 target="atty"}: cargo::core::compiler::fingerprint: fingerprint error for atty v0.2.14/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("atty", ["lib"], "/home/jingyu/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/atty-0.2.14/src/lib.rs", Edition2015) }
+   0.214369732s  INFO prepare_target{force=false package_id=atty v0.2.14 target="atty"}: cargo::core::compiler::fingerprint:     err: failed to read `/home/jingyu/workspace/2025a-rcore-liulog/easy-fs-fuse/target/riscv64gc-unknown-none-elf/debug/.fingerprint/atty-62f8468979e49fa8/lib-atty`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: cargo_util::paths::read_bytes
+   1: cargo_util::paths::read
+   2: cargo::core::compiler::fingerprint::_compare_old_fingerprint
+   3: cargo::core::compiler::fingerprint::prepare_target
+   4: cargo::core::compiler::compile
+   5: cargo::core::compiler::compile
+   6: cargo::core::compiler::compile
+   7: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   8: cargo::ops::cargo_compile::compile_ws
+   9: cargo::ops::cargo_compile::compile
+  10: cargo::commands::check::exec
+  11: <cargo::cli::Exec>::exec
+  12: cargo::main
+  13: std::sys_common::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  14: std::rt::lang_start::<()>::{closure#0}
+  15: core::ops::function::impls::<impl core::ops::function::FnOnce<A> for &F>::call_once
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/core/src/ops/function.rs:284:13
+  16: std::panicking::try::do_call
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:559:40
+  17: std::panicking::try
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:523:19
+  18: std::panic::catch_unwind
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panic.rs:149:14
+  19: std::rt::lang_start_internal::{{closure}}
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/rt.rs:141:48
+  20: std::panicking::try::do_call
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:559:40
+  21: std::panicking::try
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:523:19
+  22: std::panic::catch_unwind
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panic.rs:149:14
+  23: std::rt::lang_start_internal
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/rt.rs:141:20
+  24: main
+  25: __libc_start_call_main
+             at ./csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+  26: __libc_start_main_impl
+             at ./csu/../csu/libc-start.c:392:3
+  27: <unknown>
+   0.214802226s  INFO prepare_target{force=false package_id=bitflags v1.3.2 target="bitflags"}: cargo::core::compiler::fingerprint: fingerprint error for bitflags v1.3.2/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("bitflags", ["lib"], "/home/jingyu/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/bitflags-1.3.2/src/lib.rs", Edition2018) }
+   0.214899620s  INFO prepare_target{force=false package_id=bitflags v1.3.2 target="bitflags"}: cargo::core::compiler::fingerprint:     err: failed to read `/home/jingyu/workspace/2025a-rcore-liulog/easy-fs-fuse/target/riscv64gc-unknown-none-elf/debug/.fingerprint/bitflags-80947350b8a519a4/lib-bitflags`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: cargo_util::paths::read_bytes
+   1: cargo_util::paths::read
+   2: cargo::core::compiler::fingerprint::_compare_old_fingerprint
+   3: cargo::core::compiler::fingerprint::prepare_target
+   4: cargo::core::compiler::compile
+   5: cargo::core::compiler::compile
+   6: cargo::core::compiler::compile
+   7: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   8: cargo::ops::cargo_compile::compile_ws
+   9: cargo::ops::cargo_compile::compile
+  10: cargo::commands::check::exec
+  11: <cargo::cli::Exec>::exec
+  12: cargo::main
+  13: std::sys_common::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  14: std::rt::lang_start::<()>::{closure#0}
+  15: core::ops::function::impls::<impl core::ops::function::FnOnce<A> for &F>::call_once
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/core/src/ops/function.rs:284:13
+  16: std::panicking::try::do_call
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:559:40
+  17: std::panicking::try
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:523:19
+  18: std::panic::catch_unwind
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panic.rs:149:14
+  19: std::rt::lang_start_internal::{{closure}}
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/rt.rs:141:48
+  20: std::panicking::try::do_call
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:559:40
+  21: std::panicking::try
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:523:19
+  22: std::panic::catch_unwind
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panic.rs:149:14
+  23: std::rt::lang_start_internal
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/rt.rs:141:20
+  24: main
+  25: __libc_start_call_main
+             at ./csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+  26: __libc_start_main_impl
+             at ./csu/../csu/libc-start.c:392:3
+  27: <unknown>
+   0.215256786s  INFO prepare_target{force=false package_id=strsim v0.8.0 target="strsim"}: cargo::core::compiler::fingerprint: fingerprint error for strsim v0.8.0/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("strsim", ["lib"], "/home/jingyu/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/strsim-0.8.0/src/lib.rs", Edition2015) }
+   0.215290511s  INFO prepare_target{force=false package_id=strsim v0.8.0 target="strsim"}: cargo::core::compiler::fingerprint:     err: failed to read `/home/jingyu/workspace/2025a-rcore-liulog/easy-fs-fuse/target/riscv64gc-unknown-none-elf/debug/.fingerprint/strsim-ce00f3d62b15a2c3/lib-strsim`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: cargo_util::paths::read_bytes
+   1: cargo_util::paths::read
+   2: cargo::core::compiler::fingerprint::_compare_old_fingerprint
+   3: cargo::core::compiler::fingerprint::prepare_target
+   4: cargo::core::compiler::compile
+   5: cargo::core::compiler::compile
+   6: cargo::core::compiler::compile
+   7: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   8: cargo::ops::cargo_compile::compile_ws
+   9: cargo::ops::cargo_compile::compile
+  10: cargo::commands::check::exec
+  11: <cargo::cli::Exec>::exec
+  12: cargo::main
+  13: std::sys_common::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  14: std::rt::lang_start::<()>::{closure#0}
+  15: core::ops::function::impls::<impl core::ops::function::FnOnce<A> for &F>::call_once
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/core/src/ops/function.rs:284:13
+  16: std::panicking::try::do_call
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:559:40
+  17: std::panicking::try
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:523:19
+  18: std::panic::catch_unwind
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panic.rs:149:14
+  19: std::rt::lang_start_internal::{{closure}}
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/rt.rs:141:48
+  20: std::panicking::try::do_call
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:559:40
+  21: std::panicking::try
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:523:19
+  22: std::panic::catch_unwind
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panic.rs:149:14
+  23: std::rt::lang_start_internal
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/rt.rs:141:20
+  24: main
+  25: __libc_start_call_main
+             at ./csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+  26: __libc_start_main_impl
+             at ./csu/../csu/libc-start.c:392:3
+  27: <unknown>
+   0.215554748s  INFO prepare_target{force=false package_id=textwrap v0.11.0 target="textwrap"}: cargo::core::compiler::fingerprint: fingerprint error for textwrap v0.11.0/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("textwrap", ["lib"], "/home/jingyu/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/textwrap-0.11.0/src/lib.rs", Edition2015) }
+   0.215565696s  INFO prepare_target{force=false package_id=textwrap v0.11.0 target="textwrap"}: cargo::core::compiler::fingerprint:     err: failed to read `/home/jingyu/workspace/2025a-rcore-liulog/easy-fs-fuse/target/riscv64gc-unknown-none-elf/debug/.fingerprint/textwrap-85049c4c88f83ef9/lib-textwrap`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: cargo_util::paths::read_bytes
+   1: cargo_util::paths::read
+   2: cargo::core::compiler::fingerprint::_compare_old_fingerprint
+   3: cargo::core::compiler::fingerprint::prepare_target
+   4: cargo::core::compiler::compile
+   5: cargo::core::compiler::compile
+   6: cargo::core::compiler::compile
+   7: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   8: cargo::ops::cargo_compile::compile_ws
+   9: cargo::ops::cargo_compile::compile
+  10: cargo::commands::check::exec
+  11: <cargo::cli::Exec>::exec
+  12: cargo::main
+  13: std::sys_common::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  14: std::rt::lang_start::<()>::{closure#0}
+  15: core::ops::function::impls::<impl core::ops::function::FnOnce<A> for &F>::call_once
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/core/src/ops/function.rs:284:13
+  16: std::panicking::try::do_call
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:559:40
+  17: std::panicking::try
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:523:19
+  18: std::panic::catch_unwind
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panic.rs:149:14
+  19: std::rt::lang_start_internal::{{closure}}
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/rt.rs:141:48
+  20: std::panicking::try::do_call
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:559:40
+  21: std::panicking::try
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:523:19
+  22: std::panic::catch_unwind
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panic.rs:149:14
+  23: std::rt::lang_start_internal
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/rt.rs:141:20
+  24: main
+  25: __libc_start_call_main
+             at ./csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+  26: __libc_start_main_impl
+             at ./csu/../csu/libc-start.c:392:3
+  27: <unknown>
+   0.215800371s  INFO prepare_target{force=false package_id=unicode-width v0.1.14 target="unicode_width"}: cargo::core::compiler::fingerprint: fingerprint error for unicode-width v0.1.14/Check { test: false }/TargetInner { ..: lib_target("unicode_width", ["lib"], "/home/jingyu/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/unicode-width-0.1.14/src/lib.rs", Edition2021) }
+   0.215808516s  INFO prepare_target{force=false package_id=unicode-width v0.1.14 target="unicode_width"}: cargo::core::compiler::fingerprint:     err: failed to read `/home/jingyu/workspace/2025a-rcore-liulog/easy-fs-fuse/target/riscv64gc-unknown-none-elf/debug/.fingerprint/unicode-width-5ec134f8e7456c34/lib-unicode_width`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: cargo_util::paths::read_bytes
+   1: cargo_util::paths::read
+   2: cargo::core::compiler::fingerprint::_compare_old_fingerprint
+   3: cargo::core::compiler::fingerprint::prepare_target
+   4: cargo::core::compiler::compile
+   5: cargo::core::compiler::compile
+   6: cargo::core::compiler::compile
+   7: cargo::core::compiler::compile
+   8: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   9: cargo::ops::cargo_compile::compile_ws
+  10: cargo::ops::cargo_compile::compile
+  11: cargo::commands::check::exec
+  12: <cargo::cli::Exec>::exec
+  13: cargo::main
+  14: std::sys_common::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  15: std::rt::lang_start::<()>::{closure#0}
+  16: core::ops::function::impls::<impl core::ops::function::FnOnce<A> for &F>::call_once
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/core/src/ops/function.rs:284:13
+  17: std::panicking::try::do_call
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:559:40
+  18: std::panicking::try
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:523:19
+  19: std::panic::catch_unwind
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panic.rs:149:14
+  20: std::rt::lang_start_internal::{{closure}}
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/rt.rs:141:48
+  21: std::panicking::try::do_call
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:559:40
+  22: std::panicking::try
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:523:19
+  23: std::panic::catch_unwind
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panic.rs:149:14
+  24: std::rt::lang_start_internal
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/rt.rs:141:20
+  25: main
+  26: __libc_start_call_main
+             at ./csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+  27: __libc_start_main_impl
+             at ./csu/../csu/libc-start.c:392:3
+  28: <unknown>
+   0.216057917s  INFO prepare_target{force=false package_id=vec_map v0.8.2 target="vec_map"}: cargo::core::compiler::fingerprint: fingerprint error for vec_map v0.8.2/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("vec_map", ["lib"], "/home/jingyu/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/vec_map-0.8.2/src/lib.rs", Edition2015) }
+   0.216091024s  INFO prepare_target{force=false package_id=vec_map v0.8.2 target="vec_map"}: cargo::core::compiler::fingerprint:     err: failed to read `/home/jingyu/workspace/2025a-rcore-liulog/easy-fs-fuse/target/riscv64gc-unknown-none-elf/debug/.fingerprint/vec_map-ef413a6cb278c0b0/lib-vec_map`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: cargo_util::paths::read_bytes
+   1: cargo_util::paths::read
+   2: cargo::core::compiler::fingerprint::_compare_old_fingerprint
+   3: cargo::core::compiler::fingerprint::prepare_target
+   4: cargo::core::compiler::compile
+   5: cargo::core::compiler::compile
+   6: cargo::core::compiler::compile
+   7: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   8: cargo::ops::cargo_compile::compile_ws
+   9: cargo::ops::cargo_compile::compile
+  10: cargo::commands::check::exec
+  11: <cargo::cli::Exec>::exec
+  12: cargo::main
+  13: std::sys_common::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  14: std::rt::lang_start::<()>::{closure#0}
+  15: core::ops::function::impls::<impl core::ops::function::FnOnce<A> for &F>::call_once
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/core/src/ops/function.rs:284:13
+  16: std::panicking::try::do_call
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:559:40
+  17: std::panicking::try
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:523:19
+  18: std::panic::catch_unwind
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panic.rs:149:14
+  19: std::rt::lang_start_internal::{{closure}}
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/rt.rs:141:48
+  20: std::panicking::try::do_call
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:559:40
+  21: std::panicking::try
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:523:19
+  22: std::panic::catch_unwind
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panic.rs:149:14
+  23: std::rt::lang_start_internal
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/rt.rs:141:20
+  24: main
+  25: __libc_start_call_main
+             at ./csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+  26: __libc_start_main_impl
+             at ./csu/../csu/libc-start.c:392:3
+  27: <unknown>
+   0.216333861s  INFO prepare_target{force=false package_id=easy-fs v0.1.0 (/home/jingyu/workspace/2025a-rcore-liulog/easy-fs) target="easy_fs"}: cargo::core::compiler::fingerprint: fingerprint error for easy-fs v0.1.0 (/home/jingyu/workspace/2025a-rcore-liulog/easy-fs)/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("easy_fs", ["lib"], "/home/jingyu/workspace/2025a-rcore-liulog/easy-fs/src/lib.rs", Edition2018) }
+   0.216344876s  INFO prepare_target{force=false package_id=easy-fs v0.1.0 (/home/jingyu/workspace/2025a-rcore-liulog/easy-fs) target="easy_fs"}: cargo::core::compiler::fingerprint:     err: failed to read `/home/jingyu/workspace/2025a-rcore-liulog/easy-fs-fuse/target/riscv64gc-unknown-none-elf/debug/.fingerprint/easy-fs-5a8104c6268de3e4/lib-easy_fs`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: cargo_util::paths::read_bytes
+   1: cargo_util::paths::read
+   2: cargo::core::compiler::fingerprint::_compare_old_fingerprint
+   3: cargo::core::compiler::fingerprint::prepare_target
+   4: cargo::core::compiler::compile
+   5: cargo::core::compiler::compile
+   6: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   7: cargo::ops::cargo_compile::compile_ws
+   8: cargo::ops::cargo_compile::compile
+   9: cargo::commands::check::exec
+  10: <cargo::cli::Exec>::exec
+  11: cargo::main
+  12: std::sys_common::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  13: std::rt::lang_start::<()>::{closure#0}
+  14: core::ops::function::impls::<impl core::ops::function::FnOnce<A> for &F>::call_once
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/core/src/ops/function.rs:284:13
+  15: std::panicking::try::do_call
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:559:40
+  16: std::panicking::try
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:523:19
+  17: std::panic::catch_unwind
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panic.rs:149:14
+  18: std::rt::lang_start_internal::{{closure}}
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/rt.rs:141:48
+  19: std::panicking::try::do_call
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:559:40
+  20: std::panicking::try
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:523:19
+  21: std::panic::catch_unwind
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panic.rs:149:14
+  22: std::rt::lang_start_internal
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/rt.rs:141:20
+  23: main
+  24: __libc_start_call_main
+             at ./csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+  25: __libc_start_main_impl
+             at ./csu/../csu/libc-start.c:392:3
+  26: <unknown>
+   0.217134836s  INFO prepare_target{force=false package_id=lazy_static v1.5.0 target="lazy_static"}: cargo::core::compiler::fingerprint: fingerprint error for lazy_static v1.5.0/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("lazy_static", ["lib"], "/home/jingyu/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/lazy_static-1.5.0/src/lib.rs", Edition2015) }
+   0.217174736s  INFO prepare_target{force=false package_id=lazy_static v1.5.0 target="lazy_static"}: cargo::core::compiler::fingerprint:     err: failed to read `/home/jingyu/workspace/2025a-rcore-liulog/easy-fs-fuse/target/riscv64gc-unknown-none-elf/debug/.fingerprint/lazy_static-db6998a803cd33ff/lib-lazy_static`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: cargo_util::paths::read_bytes
+   1: cargo_util::paths::read
+   2: cargo::core::compiler::fingerprint::_compare_old_fingerprint
+   3: cargo::core::compiler::fingerprint::prepare_target
+   4: cargo::core::compiler::compile
+   5: cargo::core::compiler::compile
+   6: cargo::core::compiler::compile
+   7: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   8: cargo::ops::cargo_compile::compile_ws
+   9: cargo::ops::cargo_compile::compile
+  10: cargo::commands::check::exec
+  11: <cargo::cli::Exec>::exec
+  12: cargo::main
+  13: std::sys_common::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  14: std::rt::lang_start::<()>::{closure#0}
+  15: core::ops::function::impls::<impl core::ops::function::FnOnce<A> for &F>::call_once
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/core/src/ops/function.rs:284:13
+  16: std::panicking::try::do_call
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:559:40
+  17: std::panicking::try
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:523:19
+  18: std::panic::catch_unwind
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panic.rs:149:14
+  19: std::rt::lang_start_internal::{{closure}}
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/rt.rs:141:48
+  20: std::panicking::try::do_call
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:559:40
+  21: std::panicking::try
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:523:19
+  22: std::panic::catch_unwind
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panic.rs:149:14
+  23: std::rt::lang_start_internal
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/rt.rs:141:20
+  24: main
+  25: __libc_start_call_main
+             at ./csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+  26: __libc_start_main_impl
+             at ./csu/../csu/libc-start.c:392:3
+  27: <unknown>
+   0.217513277s  INFO prepare_target{force=false package_id=spin v0.9.8 target="spin"}: cargo::core::compiler::fingerprint: fingerprint error for spin v0.9.8/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("spin", ["lib"], "/home/jingyu/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/spin-0.9.8/src/lib.rs", Edition2015) }
+   0.217549353s  INFO prepare_target{force=false package_id=spin v0.9.8 target="spin"}: cargo::core::compiler::fingerprint:     err: failed to read `/home/jingyu/workspace/2025a-rcore-liulog/easy-fs-fuse/target/riscv64gc-unknown-none-elf/debug/.fingerprint/spin-5ef81ab8c1d3e8e3/lib-spin`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: cargo_util::paths::read_bytes
+   1: cargo_util::paths::read
+   2: cargo::core::compiler::fingerprint::_compare_old_fingerprint
+   3: cargo::core::compiler::fingerprint::prepare_target
+   4: cargo::core::compiler::compile
+   5: cargo::core::compiler::compile
+   6: cargo::core::compiler::compile
+   7: cargo::core::compiler::compile
+   8: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   9: cargo::ops::cargo_compile::compile_ws
+  10: cargo::ops::cargo_compile::compile
+  11: cargo::commands::check::exec
+  12: <cargo::cli::Exec>::exec
+  13: cargo::main
+  14: std::sys_common::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  15: std::rt::lang_start::<()>::{closure#0}
+  16: core::ops::function::impls::<impl core::ops::function::FnOnce<A> for &F>::call_once
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/core/src/ops/function.rs:284:13
+  17: std::panicking::try::do_call
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:559:40
+  18: std::panicking::try
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:523:19
+  19: std::panic::catch_unwind
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panic.rs:149:14
+  20: std::rt::lang_start_internal::{{closure}}
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/rt.rs:141:48
+  21: std::panicking::try::do_call
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:559:40
+  22: std::panicking::try
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:523:19
+  23: std::panic::catch_unwind
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panic.rs:149:14
+  24: std::rt::lang_start_internal
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/rt.rs:141:20
+  25: main
+  26: __libc_start_call_main
+             at ./csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+  27: __libc_start_main_impl
+             at ./csu/../csu/libc-start.c:392:3
+  28: <unknown>
+   0.217821101s  INFO prepare_target{force=false package_id=spin v0.7.1 target="spin"}: cargo::core::compiler::fingerprint: fingerprint error for spin v0.7.1/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("spin", ["lib"], "/home/jingyu/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/spin-0.7.1/src/lib.rs", Edition2015) }
+   0.217853302s  INFO prepare_target{force=false package_id=spin v0.7.1 target="spin"}: cargo::core::compiler::fingerprint:     err: failed to read `/home/jingyu/workspace/2025a-rcore-liulog/easy-fs-fuse/target/riscv64gc-unknown-none-elf/debug/.fingerprint/spin-d3414fc02f0570e2/lib-spin`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: cargo_util::paths::read_bytes
+   1: cargo_util::paths::read
+   2: cargo::core::compiler::fingerprint::_compare_old_fingerprint
+   3: cargo::core::compiler::fingerprint::prepare_target
+   4: cargo::core::compiler::compile
+   5: cargo::core::compiler::compile
+   6: cargo::core::compiler::compile
+   7: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   8: cargo::ops::cargo_compile::compile_ws
+   9: cargo::ops::cargo_compile::compile
+  10: cargo::commands::check::exec
+  11: <cargo::cli::Exec>::exec
+  12: cargo::main
+  13: std::sys_common::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  14: std::rt::lang_start::<()>::{closure#0}
+  15: core::ops::function::impls::<impl core::ops::function::FnOnce<A> for &F>::call_once
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/core/src/ops/function.rs:284:13
+  16: std::panicking::try::do_call
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:559:40
+  17: std::panicking::try
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:523:19
+  18: std::panic::catch_unwind
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panic.rs:149:14
+  19: std::rt::lang_start_internal::{{closure}}
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/rt.rs:141:48
+  20: std::panicking::try::do_call
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:559:40
+  21: std::panicking::try
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:523:19
+  22: std::panic::catch_unwind
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panic.rs:149:14
+  23: std::rt::lang_start_internal
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/rt.rs:141:20
+  24: main
+  25: __libc_start_call_main
+             at ./csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+  26: __libc_start_main_impl
+             at ./csu/../csu/libc-start.c:392:3
+  27: <unknown>
+   0.218113080s  INFO prepare_target{force=false package_id=rand v0.8.5 target="rand"}: cargo::core::compiler::fingerprint: fingerprint error for rand v0.8.5/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("rand", ["lib"], "/home/jingyu/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/rand-0.8.5/src/lib.rs", Edition2018) }
+   0.218146912s  INFO prepare_target{force=false package_id=rand v0.8.5 target="rand"}: cargo::core::compiler::fingerprint:     err: failed to read `/home/jingyu/workspace/2025a-rcore-liulog/easy-fs-fuse/target/riscv64gc-unknown-none-elf/debug/.fingerprint/rand-c047c83c54da427a/lib-rand`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: cargo_util::paths::read_bytes
+   1: cargo_util::paths::read
+   2: cargo::core::compiler::fingerprint::_compare_old_fingerprint
+   3: cargo::core::compiler::fingerprint::prepare_target
+   4: cargo::core::compiler::compile
+   5: cargo::core::compiler::compile
+   6: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   7: cargo::ops::cargo_compile::compile_ws
+   8: cargo::ops::cargo_compile::compile
+   9: cargo::commands::check::exec
+  10: <cargo::cli::Exec>::exec
+  11: cargo::main
+  12: std::sys_common::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  13: std::rt::lang_start::<()>::{closure#0}
+  14: core::ops::function::impls::<impl core::ops::function::FnOnce<A> for &F>::call_once
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/core/src/ops/function.rs:284:13
+  15: std::panicking::try::do_call
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:559:40
+  16: std::panicking::try
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:523:19
+  17: std::panic::catch_unwind
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panic.rs:149:14
+  18: std::rt::lang_start_internal::{{closure}}
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/rt.rs:141:48
+  19: std::panicking::try::do_call
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:559:40
+  20: std::panicking::try
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:523:19
+  21: std::panic::catch_unwind
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panic.rs:149:14
+  22: std::rt::lang_start_internal
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/rt.rs:141:20
+  23: main
+  24: __libc_start_call_main
+             at ./csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+  25: __libc_start_main_impl
+             at ./csu/../csu/libc-start.c:392:3
+  26: <unknown>
+   0.218428303s  INFO prepare_target{force=false package_id=rand_chacha v0.3.1 target="rand_chacha"}: cargo::core::compiler::fingerprint: fingerprint error for rand_chacha v0.3.1/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("rand_chacha", ["lib"], "/home/jingyu/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/rand_chacha-0.3.1/src/lib.rs", Edition2018) }
+   0.218464280s  INFO prepare_target{force=false package_id=rand_chacha v0.3.1 target="rand_chacha"}: cargo::core::compiler::fingerprint:     err: failed to read `/home/jingyu/workspace/2025a-rcore-liulog/easy-fs-fuse/target/riscv64gc-unknown-none-elf/debug/.fingerprint/rand_chacha-b4fe9aeb12d992c7/lib-rand_chacha`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: cargo_util::paths::read_bytes
+   1: cargo_util::paths::read
+   2: cargo::core::compiler::fingerprint::_compare_old_fingerprint
+   3: cargo::core::compiler::fingerprint::prepare_target
+   4: cargo::core::compiler::compile
+   5: cargo::core::compiler::compile
+   6: cargo::core::compiler::compile
+   7: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   8: cargo::ops::cargo_compile::compile_ws
+   9: cargo::ops::cargo_compile::compile
+  10: cargo::commands::check::exec
+  11: <cargo::cli::Exec>::exec
+  12: cargo::main
+  13: std::sys_common::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  14: std::rt::lang_start::<()>::{closure#0}
+  15: core::ops::function::impls::<impl core::ops::function::FnOnce<A> for &F>::call_once
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/core/src/ops/function.rs:284:13
+  16: std::panicking::try::do_call
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:559:40
+  17: std::panicking::try
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:523:19
+  18: std::panic::catch_unwind
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panic.rs:149:14
+  19: std::rt::lang_start_internal::{{closure}}
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/rt.rs:141:48
+  20: std::panicking::try::do_call
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:559:40
+  21: std::panicking::try
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:523:19
+  22: std::panic::catch_unwind
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panic.rs:149:14
+  23: std::rt::lang_start_internal
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/rt.rs:141:20
+  24: main
+  25: __libc_start_call_main
+             at ./csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+  26: __libc_start_main_impl
+             at ./csu/../csu/libc-start.c:392:3
+  27: <unknown>
+   0.218787137s  INFO prepare_target{force=false package_id=ppv-lite86 v0.2.21 target="ppv_lite86"}: cargo::core::compiler::fingerprint: fingerprint error for ppv-lite86 v0.2.21/Check { test: false }/TargetInner { ..: lib_target("ppv_lite86", ["lib"], "/home/jingyu/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/ppv-lite86-0.2.21/src/lib.rs", Edition2021) }
+   0.218818422s  INFO prepare_target{force=false package_id=ppv-lite86 v0.2.21 target="ppv_lite86"}: cargo::core::compiler::fingerprint:     err: failed to read `/home/jingyu/workspace/2025a-rcore-liulog/easy-fs-fuse/target/riscv64gc-unknown-none-elf/debug/.fingerprint/ppv-lite86-0f4d77c8f6b70e7a/lib-ppv_lite86`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: cargo_util::paths::read_bytes
+   1: cargo_util::paths::read
+   2: cargo::core::compiler::fingerprint::_compare_old_fingerprint
+   3: cargo::core::compiler::fingerprint::prepare_target
+   4: cargo::core::compiler::compile
+   5: cargo::core::compiler::compile
+   6: cargo::core::compiler::compile
+   7: cargo::core::compiler::compile
+   8: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   9: cargo::ops::cargo_compile::compile_ws
+  10: cargo::ops::cargo_compile::compile
+  11: cargo::commands::check::exec
+  12: <cargo::cli::Exec>::exec
+  13: cargo::main
+  14: std::sys_common::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  15: std::rt::lang_start::<()>::{closure#0}
+  16: core::ops::function::impls::<impl core::ops::function::FnOnce<A> for &F>::call_once
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/core/src/ops/function.rs:284:13
+  17: std::panicking::try::do_call
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:559:40
+  18: std::panicking::try
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:523:19
+  19: std::panic::catch_unwind
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panic.rs:149:14
+  20: std::rt::lang_start_internal::{{closure}}
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/rt.rs:141:48
+  21: std::panicking::try::do_call
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:559:40
+  22: std::panicking::try
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:523:19
+  23: std::panic::catch_unwind
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panic.rs:149:14
+  24: std::rt::lang_start_internal
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/rt.rs:141:20
+  25: main
+  26: __libc_start_call_main
+             at ./csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+  27: __libc_start_main_impl
+             at ./csu/../csu/libc-start.c:392:3
+  28: <unknown>
+   0.219082811s  INFO prepare_target{force=false package_id=zerocopy v0.8.27 target="zerocopy"}: cargo::core::compiler::fingerprint: fingerprint error for zerocopy v0.8.27/Check { test: false }/TargetInner { ..: lib_target("zerocopy", ["lib"], "/home/jingyu/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/zerocopy-0.8.27/src/lib.rs", Edition2021) }
+   0.219116189s  INFO prepare_target{force=false package_id=zerocopy v0.8.27 target="zerocopy"}: cargo::core::compiler::fingerprint:     err: failed to read `/home/jingyu/workspace/2025a-rcore-liulog/easy-fs-fuse/target/riscv64gc-unknown-none-elf/debug/.fingerprint/zerocopy-8a94456470c6a6e0/lib-zerocopy`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: cargo_util::paths::read_bytes
+   1: cargo_util::paths::read
+   2: cargo::core::compiler::fingerprint::_compare_old_fingerprint
+   3: cargo::core::compiler::fingerprint::prepare_target
+   4: cargo::core::compiler::compile
+   5: cargo::core::compiler::compile
+   6: cargo::core::compiler::compile
+   7: cargo::core::compiler::compile
+   8: cargo::core::compiler::compile
+   9: <cargo::core::compiler::build_runner::BuildRunner>::compile
+  10: cargo::ops::cargo_compile::compile_ws
+  11: cargo::ops::cargo_compile::compile
+  12: cargo::commands::check::exec
+  13: <cargo::cli::Exec>::exec
+  14: cargo::main
+  15: std::sys_common::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  16: std::rt::lang_start::<()>::{closure#0}
+  17: core::ops::function::impls::<impl core::ops::function::FnOnce<A> for &F>::call_once
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/core/src/ops/function.rs:284:13
+  18: std::panicking::try::do_call
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:559:40
+  19: std::panicking::try
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:523:19
+  20: std::panic::catch_unwind
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panic.rs:149:14
+  21: std::rt::lang_start_internal::{{closure}}
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/rt.rs:141:48
+  22: std::panicking::try::do_call
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:559:40
+  23: std::panicking::try
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:523:19
+  24: std::panic::catch_unwind
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panic.rs:149:14
+  25: std::rt::lang_start_internal
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/rt.rs:141:20
+  26: main
+  27: __libc_start_call_main
+             at ./csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+  28: __libc_start_main_impl
+             at ./csu/../csu/libc-start.c:392:3
+  29: <unknown>
+   0.219739473s  INFO prepare_target{force=false package_id=zerocopy v0.8.27 target="build-script-build"}: cargo::core::compiler::fingerprint: fingerprint error for zerocopy v0.8.27/RunCustomBuild/TargetInner { ..: custom_build_target("build-script-build", "/home/jingyu/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/zerocopy-0.8.27/build.rs", Edition2021) }
+   0.219775028s  INFO prepare_target{force=false package_id=zerocopy v0.8.27 target="build-script-build"}: cargo::core::compiler::fingerprint:     err: failed to read `/home/jingyu/workspace/2025a-rcore-liulog/easy-fs-fuse/target/riscv64gc-unknown-none-elf/debug/.fingerprint/zerocopy-c588ae66d5efc7cc/run-build-script-build-script-build`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: cargo_util::paths::read_bytes
+   1: cargo_util::paths::read
+   2: cargo::core::compiler::fingerprint::_compare_old_fingerprint
+   3: cargo::core::compiler::fingerprint::prepare_target
+   4: cargo::core::compiler::custom_build::build_work
+   5: cargo::core::compiler::compile
+   6: cargo::core::compiler::compile
+   7: cargo::core::compiler::compile
+   8: cargo::core::compiler::compile
+   9: cargo::core::compiler::compile
+  10: cargo::core::compiler::compile
+  11: <cargo::core::compiler::build_runner::BuildRunner>::compile
+  12: cargo::ops::cargo_compile::compile_ws
+  13: cargo::ops::cargo_compile::compile
+  14: cargo::commands::check::exec
+  15: <cargo::cli::Exec>::exec
+  16: cargo::main
+  17: std::sys_common::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  18: std::rt::lang_start::<()>::{closure#0}
+  19: core::ops::function::impls::<impl core::ops::function::FnOnce<A> for &F>::call_once
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/core/src/ops/function.rs:284:13
+  20: std::panicking::try::do_call
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:559:40
+  21: std::panicking::try
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:523:19
+  22: std::panic::catch_unwind
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panic.rs:149:14
+  23: std::rt::lang_start_internal::{{closure}}
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/rt.rs:141:48
+  24: std::panicking::try::do_call
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:559:40
+  25: std::panicking::try
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:523:19
+  26: std::panic::catch_unwind
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panic.rs:149:14
+  27: std::rt::lang_start_internal
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/rt.rs:141:20
+  28: main
+  29: __libc_start_call_main
+             at ./csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+  30: __libc_start_main_impl
+             at ./csu/../csu/libc-start.c:392:3
+  31: <unknown>
+   0.220007279s  INFO prepare_target{force=false package_id=zerocopy v0.8.27 target="build-script-build"}: cargo::core::compiler::fingerprint: fingerprint error for zerocopy v0.8.27/Build/TargetInner { ..: custom_build_target("build-script-build", "/home/jingyu/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/zerocopy-0.8.27/build.rs", Edition2021) }
+   0.220035866s  INFO prepare_target{force=false package_id=zerocopy v0.8.27 target="build-script-build"}: cargo::core::compiler::fingerprint:     err: failed to read `/home/jingyu/workspace/2025a-rcore-liulog/easy-fs-fuse/target/debug/.fingerprint/zerocopy-38566fe464bf41ac/build-script-build-script-build`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: cargo_util::paths::read_bytes
+   1: cargo_util::paths::read
+   2: cargo::core::compiler::fingerprint::_compare_old_fingerprint
+   3: cargo::core::compiler::fingerprint::prepare_target
+   4: cargo::core::compiler::compile
+   5: cargo::core::compiler::compile
+   6: cargo::core::compiler::compile
+   7: cargo::core::compiler::compile
+   8: cargo::core::compiler::compile
+   9: cargo::core::compiler::compile
+  10: cargo::core::compiler::compile
+  11: <cargo::core::compiler::build_runner::BuildRunner>::compile
+  12: cargo::ops::cargo_compile::compile_ws
+  13: cargo::ops::cargo_compile::compile
+  14: cargo::commands::check::exec
+  15: <cargo::cli::Exec>::exec
+  16: cargo::main
+  17: std::sys_common::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  18: std::rt::lang_start::<()>::{closure#0}
+  19: core::ops::function::impls::<impl core::ops::function::FnOnce<A> for &F>::call_once
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/core/src/ops/function.rs:284:13
+  20: std::panicking::try::do_call
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:559:40
+  21: std::panicking::try
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:523:19
+  22: std::panic::catch_unwind
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panic.rs:149:14
+  23: std::rt::lang_start_internal::{{closure}}
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/rt.rs:141:48
+  24: std::panicking::try::do_call
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:559:40
+  25: std::panicking::try
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:523:19
+  26: std::panic::catch_unwind
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panic.rs:149:14
+  27: std::rt::lang_start_internal
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/rt.rs:141:20
+  28: main
+  29: __libc_start_call_main
+             at ./csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+  30: __libc_start_main_impl
+             at ./csu/../csu/libc-start.c:392:3
+  31: <unknown>
+   0.220286021s  INFO prepare_target{force=false package_id=rand_core v0.6.4 target="rand_core"}: cargo::core::compiler::fingerprint: fingerprint error for rand_core v0.6.4/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("rand_core", ["lib"], "/home/jingyu/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/rand_core-0.6.4/src/lib.rs", Edition2018) }
+   0.220326379s  INFO prepare_target{force=false package_id=rand_core v0.6.4 target="rand_core"}: cargo::core::compiler::fingerprint:     err: failed to read `/home/jingyu/workspace/2025a-rcore-liulog/easy-fs-fuse/target/riscv64gc-unknown-none-elf/debug/.fingerprint/rand_core-9f80746a8f99c741/lib-rand_core`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: cargo_util::paths::read_bytes
+   1: cargo_util::paths::read
+   2: cargo::core::compiler::fingerprint::_compare_old_fingerprint
+   3: cargo::core::compiler::fingerprint::prepare_target
+   4: cargo::core::compiler::compile
+   5: cargo::core::compiler::compile
+   6: cargo::core::compiler::compile
+   7: cargo::core::compiler::compile
+   8: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   9: cargo::ops::cargo_compile::compile_ws
+  10: cargo::ops::cargo_compile::compile
+  11: cargo::commands::check::exec
+  12: <cargo::cli::Exec>::exec
+  13: cargo::main
+  14: std::sys_common::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  15: std::rt::lang_start::<()>::{closure#0}
+  16: core::ops::function::impls::<impl core::ops::function::FnOnce<A> for &F>::call_once
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/core/src/ops/function.rs:284:13
+  17: std::panicking::try::do_call
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:559:40
+  18: std::panicking::try
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:523:19
+  19: std::panic::catch_unwind
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panic.rs:149:14
+  20: std::rt::lang_start_internal::{{closure}}
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/rt.rs:141:48
+  21: std::panicking::try::do_call
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:559:40
+  22: std::panicking::try
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:523:19
+  23: std::panic::catch_unwind
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panic.rs:149:14
+  24: std::rt::lang_start_internal
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/rt.rs:141:20
+  25: main
+  26: __libc_start_call_main
+             at ./csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+  27: __libc_start_main_impl
+             at ./csu/../csu/libc-start.c:392:3
+  28: <unknown>
+   0.220562169s  INFO prepare_target{force=false package_id=getrandom v0.2.16 target="getrandom"}: cargo::core::compiler::fingerprint: fingerprint error for getrandom v0.2.16/Check { test: false }/TargetInner { ..: lib_target("getrandom", ["lib"], "/home/jingyu/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/getrandom-0.2.16/src/lib.rs", Edition2018) }
+   0.220570923s  INFO prepare_target{force=false package_id=getrandom v0.2.16 target="getrandom"}: cargo::core::compiler::fingerprint:     err: failed to read `/home/jingyu/workspace/2025a-rcore-liulog/easy-fs-fuse/target/riscv64gc-unknown-none-elf/debug/.fingerprint/getrandom-33296a965d9f6843/lib-getrandom`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: cargo_util::paths::read_bytes
+   1: cargo_util::paths::read
+   2: cargo::core::compiler::fingerprint::_compare_old_fingerprint
+   3: cargo::core::compiler::fingerprint::prepare_target
+   4: cargo::core::compiler::compile
+   5: cargo::core::compiler::compile
+   6: cargo::core::compiler::compile
+   7: cargo::core::compiler::compile
+   8: cargo::core::compiler::compile
+   9: <cargo::core::compiler::build_runner::BuildRunner>::compile
+  10: cargo::ops::cargo_compile::compile_ws
+  11: cargo::ops::cargo_compile::compile
+  12: cargo::commands::check::exec
+  13: <cargo::cli::Exec>::exec
+  14: cargo::main
+  15: std::sys_common::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  16: std::rt::lang_start::<()>::{closure#0}
+  17: core::ops::function::impls::<impl core::ops::function::FnOnce<A> for &F>::call_once
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/core/src/ops/function.rs:284:13
+  18: std::panicking::try::do_call
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:559:40
+  19: std::panicking::try
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:523:19
+  20: std::panic::catch_unwind
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panic.rs:149:14
+  21: std::rt::lang_start_internal::{{closure}}
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/rt.rs:141:48
+  22: std::panicking::try::do_call
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:559:40
+  23: std::panicking::try
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:523:19
+  24: std::panic::catch_unwind
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panic.rs:149:14
+  25: std::rt::lang_start_internal
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/rt.rs:141:20
+  26: main
+  27: __libc_start_call_main
+             at ./csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+  28: __libc_start_main_impl
+             at ./csu/../csu/libc-start.c:392:3
+  29: <unknown>
+   0.220859241s  INFO prepare_target{force=false package_id=cfg-if v1.0.3 target="cfg_if"}: cargo::core::compiler::fingerprint: fingerprint error for cfg-if v1.0.3/Check { test: false }/TargetInner { ..: lib_target("cfg_if", ["lib"], "/home/jingyu/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/cfg-if-1.0.3/src/lib.rs", Edition2018) }
+   0.220892549s  INFO prepare_target{force=false package_id=cfg-if v1.0.3 target="cfg_if"}: cargo::core::compiler::fingerprint:     err: failed to read `/home/jingyu/workspace/2025a-rcore-liulog/easy-fs-fuse/target/riscv64gc-unknown-none-elf/debug/.fingerprint/cfg-if-f90b53843881c8e3/lib-cfg_if`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: cargo_util::paths::read_bytes
+   1: cargo_util::paths::read
+   2: cargo::core::compiler::fingerprint::_compare_old_fingerprint
+   3: cargo::core::compiler::fingerprint::prepare_target
+   4: cargo::core::compiler::compile
+   5: cargo::core::compiler::compile
+   6: cargo::core::compiler::compile
+   7: cargo::core::compiler::compile
+   8: cargo::core::compiler::compile
+   9: cargo::core::compiler::compile
+  10: <cargo::core::compiler::build_runner::BuildRunner>::compile
+  11: cargo::ops::cargo_compile::compile_ws
+  12: cargo::ops::cargo_compile::compile
+  13: cargo::commands::check::exec
+  14: <cargo::cli::Exec>::exec
+  15: cargo::main
+  16: std::sys_common::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  17: std::rt::lang_start::<()>::{closure#0}
+  18: core::ops::function::impls::<impl core::ops::function::FnOnce<A> for &F>::call_once
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/core/src/ops/function.rs:284:13
+  19: std::panicking::try::do_call
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:559:40
+  20: std::panicking::try
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:523:19
+  21: std::panic::catch_unwind
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panic.rs:149:14
+  22: std::rt::lang_start_internal::{{closure}}
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/rt.rs:141:48
+  23: std::panicking::try::do_call
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:559:40
+  24: std::panicking::try
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panicking.rs:523:19
+  25: std::panic::catch_unwind
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/panic.rs:149:14
+  26: std::rt::lang_start_internal
+             at /rustc/c987ad527540e8f1565f57c31204bde33f63df76/library/std/src/rt.rs:141:20
+  27: main
+  28: __libc_start_call_main
+             at ./csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+  29: __libc_start_main_impl
+             at ./csu/../csu/libc-start.c:392:3
+  30: <unknown>
+   Compiling zerocopy v0.8.27
+    Checking cfg-if v1.0.3
+    Checking unicode-width v0.1.14
+    Checking spin v0.9.8
     Checking strsim v0.8.0
-    Checking atty v0.2.14
     Checking ansi_term v0.12.1
+    Checking bitflags v1.3.2
+    Checking atty v0.2.14
+    Checking spin v0.7.1
     Checking vec_map v0.8.2
-    Checking textwrap v0.11.0
 error: could not compile `atty` (lib) due to 5 previous errors
 warning: build failed, waiting for other jobs to finish...
-error: could not compile `getrandom` (lib) due to 4 previous errors
+    Checking getrandom v0.2.16
 error: could not compile `strsim` (lib) due to 22 previous errors
-error: could not compile `textwrap` (lib) due to 39 previous errors
-error: could not compile `ansi_term` (lib) due to 145 previous errors
+    Checking lazy_static v1.5.0
 error: could not compile `vec_map` (lib) due to 131 previous errors
+    Checking easy-fs v0.1.0 (/home/jingyu/workspace/2025a-rcore-liulog/easy-fs)
+error: could not compile `ansi_term` (lib) due to 145 previous errors
+error: could not compile `getrandom` (lib) due to 4 previous errors
+    Checking textwrap v0.11.0
+error: could not compile `textwrap` (lib) due to 39 previous errors
+    Checking ppv-lite86 v0.2.21

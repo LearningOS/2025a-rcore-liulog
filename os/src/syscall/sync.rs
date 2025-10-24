@@ -2,6 +2,7 @@ use crate::sync::{Condvar, Mutex, MutexBlocking, MutexSpin, Semaphore};
 use crate::task::{block_current_and_run_next, current_process, current_task};
 use crate::timer::{add_timer, get_time_ms};
 use alloc::sync::Arc;
+use alloc::{vec, vec::Vec};
 /// sleep syscall
 pub fn sys_sleep(ms: usize) -> isize {
     trace!(
@@ -130,11 +131,19 @@ pub fn sys_semaphore_create(res_count: usize) -> isize {
         .map(|(id, _)| id)
     {
         process_inner.semaphore_list[id] = Some(Arc::new(Semaphore::new(res_count)));
+        if process_inner.deadlock_detect {
+            // update available vector
+            process_inner.available[id] = res_count;
+        }
         id
     } else {
         process_inner
             .semaphore_list
             .push(Some(Arc::new(Semaphore::new(res_count))));
+        if process_inner.deadlock_detect {
+            // add resource to available vector
+            process_inner.available.push(res_count);
+        }
         process_inner.semaphore_list.len() - 1
     };
     id as isize
@@ -154,11 +163,69 @@ pub fn sys_semaphore_up(sem_id: usize) -> isize {
     );
     let process = current_process();
     let process_inner = process.inner_exclusive_access();
+    
     let sem = Arc::clone(process_inner.semaphore_list[sem_id].as_ref().unwrap());
     drop(process_inner);
     sem.up();
+
+    // after releasing the semaphore, update allocation
+    let mut process_inner = process.inner_exclusive_access();
+    if process_inner.deadlock_detect {
+        // add resource back to available
+        process_inner.available[sem_id] += 1;
+        // update allocation and need vectors
+        let tid = current_task()
+            .unwrap()
+            .inner_exclusive_access()
+            .res
+            .as_ref()
+            .unwrap()
+            .tid;
+        process_inner.allocation[tid][sem_id] -= 1;
+    }
     0
 }
+/// deadlock algorithm implementation
+fn deadlock_detection(
+    available: &Vec<usize>,
+    allocation: &Vec<Vec<usize>>,
+    need: &Vec<Vec<usize>>,
+) -> bool {
+    info!("{:?}", available);
+    info!("{:?}", allocation);
+    info!("{:?}", need);
+
+    let n = allocation.len();   // number of threads
+    let m = available.len();    // resource types
+
+    let mut work = available.clone();
+    let mut finish = vec![false; n];
+
+    loop {
+        let mut found = false;
+
+        for i in 0..n {
+            if !finish[i] {
+                let can_run = (0..m).all(|j| need[i][j] <= work[j]);
+
+                if can_run {
+                    for j in 0..m {
+                        work[j] += allocation[i][j];
+                    }
+                    finish[i] = true;
+                    found = true;
+                }
+            }
+        }
+
+        if !found {
+            break;
+        }
+    }
+
+    !finish.iter().all(|&f| f)
+}
+
 /// semaphore down syscall
 pub fn sys_semaphore_down(sem_id: usize) -> isize {
     trace!(
@@ -173,10 +240,48 @@ pub fn sys_semaphore_down(sem_id: usize) -> isize {
             .tid
     );
     let process = current_process();
-    let process_inner = process.inner_exclusive_access();
-    let sem = Arc::clone(process_inner.semaphore_list[sem_id].as_ref().unwrap());
+    let mut process_inner = process.inner_exclusive_access();
+    if process_inner.deadlock_detect {
+        let tid = current_task()
+            .unwrap()
+            .inner_exclusive_access()
+            .res
+            .as_ref()
+            .unwrap()
+            .tid;
+        // update need
+        process_inner.need[tid][sem_id] += 1;
+        // check deadlock
+        if deadlock_detection(
+            &process_inner.available,
+            &process_inner.allocation,
+            &process_inner.need,
+        ) {
+            return -0xDEAD;
+        }
+    }
+    
+    // sem.down may transfer control, so we drop process_inner first
+    let sem: Arc<Semaphore> = Arc::clone(process_inner.semaphore_list[sem_id].as_ref().unwrap());
     drop(process_inner);
     sem.down();
+
+    // after acquiring the semaphore, update allocation
+    let mut process_inner = process.inner_exclusive_access();
+    if process_inner.deadlock_detect {
+        // reduce available resources
+        process_inner.available[sem_id] -= 1;
+        let tid = current_task()
+            .unwrap()
+            .inner_exclusive_access()
+            .res
+            .as_ref()
+            .unwrap()
+            .tid;
+        // update allocation and need vectors
+        process_inner.allocation[tid][sem_id] += 1;
+        process_inner.need[tid][sem_id] -= 1;
+    }
     0
 }
 /// condvar create syscall

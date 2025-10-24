@@ -53,6 +53,12 @@ pub struct ProcessControlBlockInner {
     pub deadlock_detect: bool,
     /// mutex resource list
     pub mutex_resource_list: Vec<bool>,
+    /// available vector: available resources (length: resource types)
+    pub available: Vec<usize>,
+    /// allocation vector: resources allocated to threads
+    pub allocation: Vec<Vec<usize>>,
+    /// need vector: resources needed by threads
+    pub need: Vec<Vec<usize>>,
 }
 
 impl ProcessControlBlockInner {
@@ -125,6 +131,10 @@ impl ProcessControlBlock {
                     condvar_list: Vec::new(),
                     deadlock_detect: false,
                     mutex_resource_list: Vec::new(),
+                    available: Vec::new(),
+                    // assume max 5 resource types, max 5 threads
+                    allocation: vec![vec![0; 5]; 5],
+                    need: vec![vec![0; 5]; 5],
                 })
             },
         });
@@ -253,6 +263,10 @@ impl ProcessControlBlock {
                     condvar_list: Vec::new(),
                     deadlock_detect: false,
                     mutex_resource_list: Vec::new(),
+                    available: Vec::new(),
+                    // assume max 5 resource types, max 5 threads
+                    allocation: vec![vec![0; 5]; 5],
+                    need: vec![vec![0; 5]; 5],
                 })
             },
         });
